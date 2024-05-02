@@ -69,3 +69,31 @@ public:
         }
     }
 };
+
+// Main function
+int main() {
+    // Print program title
+    cout << "\033[1;34m\t\t===  Zorgo's Spaceship  ===\t\t" << endl;
+    cout << "\033[1;36m\t\t  By Triumph Ogbonnia" << endl;
+
+    string name;
+    float fuel_level, speed, cargo_capacity;
+
+    // Get user input for spaceship information
+    cout << "\n\033[1;34mEnter spaceship name >> ";
+    getline(cin, name);
+    cout << "Enter current fuel level >> ";
+    cin >> fuel_level;
+    cout << "Enter current speed >> ";
+    cin >> speed;
+    cout << "Enter cargo capacity (tons) >> ";
+    cin >> cargo_capacity;
+
+    // Display current spaceship information to the user
+    cout << "\n\033[1;36m" << name << " has fuel level " << fuel_level << " with a current speed of " << speed << " MPH and " << cargo_capacity << " tons of cargo capacity" << endl;
+
+    char choice;
+
+    // Create a spaceship instance using spaceship details
+    Spaceship spaceship(name, fuel_level, speed, cargo_capacity);
+}
