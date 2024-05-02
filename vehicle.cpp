@@ -96,4 +96,69 @@ int main() {
 
     // Create a spaceship instance using spaceship details
     Spaceship spaceship(name, fuel_level, speed, cargo_capacity);
+
+    // Options for spaceship operations
+    do {
+        cout << endl;
+        cout << "\033[1;33m1. Refuel" << endl;
+        cout << "2. Accelerate" << endl;
+        cout << "3. Decelerate" << endl;
+        cout << "4. Load Cargo" << endl;
+        cout << "5. Offload Cargo" << endl;
+        cout << "6. Land" << endl;
+        cout << "Enter X to exit" << endl;
+
+        cout << "\n\033[1;36mEnter your choice >> ";
+        cin >> choice;
+
+        // Perform corresponding action based on user choice
+        switch(choice) {
+            case '1': {
+                float amount;
+                cout << "Enter the amount of fuel to refuel >> ";
+                cin >> amount;
+                spaceship.refuel(amount);
+                break;
+            }
+            case '2': {
+                float increment;
+                cout << "Enter acceleration increment (MPH) >> ";
+                cin >> increment;
+                spaceship.accelerate(increment);
+                break;
+            }
+            case '3': {
+                float decrement;
+                cout << "Enter deceleration decrement (MPH) >> ";
+                cin >> decrement;
+                spaceship.decelerate(decrement);
+                break;
+            }
+            case '4': {
+                float cargo;
+                cout << "Enter the amount of cargo to load >> ";
+                cin >> cargo;
+                spaceship.load_cargo(cargo);
+                break;
+            }
+            case '5': {
+                float cargo;
+                cout << "Enter the amount of cargo to offload >> ";
+                cin >> cargo;
+                spaceship.offload_cargo(cargo);
+                break;
+            }
+            case '6':
+                spaceship.land();
+                break;
+            case 'X':
+            case 'x':
+                cout << "\033[1;32m\nExiting program. . ." << endl;
+                break;
+            default:
+                cout << "\033[1;31mInvalid choice. Please try again." << endl;
+        }
+    } while(choice != 'X' && choice != 'x');
+
+    return 0;
 }
