@@ -35,4 +35,37 @@ public:
         cout << "\033[1;34m" << name << " is now traveling at " << speed << " MPH." << endl;
     }
 
+    // Method to decelerate the spaceship
+    void decelerate(float decrement) {
+        if (speed - decrement >= 0) {
+            speed -= decrement;
+            cout << "\033[1;34m" << name << " is now traveling at " << speed << " MPH." << endl;
+        } else {
+            cout << "\033[1;36m" << name << " cannot decelerate further." << endl;
+        }
+    }
+
+    // Method to load cargo onto the spaceship
+    void load_cargo(float cargo) {
+        if (cargo <= cargo_capacity) {
+            cout << "\033[1;34m" << cargo << " tons of cargo loaded onto " << name << "." << endl;
+        } else {
+            cout << "\033[1;36mNot enough capacity on " << name << " to load " << cargo << " tons of cargo." << endl;
+        }
+    }
+
+    // Method to offload cargo from the spaceship
+    void offload_cargo(float cargo) {
+        cout << "\033[1;34m" << cargo << " tons of cargo offloaded from " << name << "." << endl;
+    }
+
+    // Method to land the spaceship
+    void land() {
+        if (!landed) {
+            landed = true;
+            cout << "\033[1;34m" << name << " has landed successfully." << endl;
+        } else {
+            cout << "\033[1;36m" << name << " is already landed." << endl;
+        }
+    }
 };
